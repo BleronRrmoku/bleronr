@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite to Go Out</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('/foto.jpg.jpg');
+            /* Replace 'path/to/your/background-image.jpg' with the actual path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-size: 100% auto;
+            
+
+        }
+
+        header {
+            background-color: violet;
+            color: #ffcc00;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 15px;
+            cursor: pointer;
+            background-color: #5c4caf;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.5s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #c30017;
+        }
+
+        .move-away-up {
+            transform: translateY(-75%);
+            transition: transform 0.5s ease;
+        }
+
+        .move-away-down {
+            transform: translateY(150%);
+            transition: transform 0.5s ease;
+        }
+
+        .move-away-right {
+            transform: translateX(150%);
+            transition: transform 0.5s ease;
+        }
+
+        .move-away-left {
+            transform: translateX(-150%);
+            transition: transform 0.5s ease;
+        }
+
+        .lovely-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 8px;
+            margin-top: 60px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: violet;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Love of Your Life🤍</h1>
+    </header>
+
+    <h1>Would you like to go out with me tonight?</h1>
+
+    <img class="lovely-image" src="https://media1.tenor.com/m/FZfcPyYj1r4AAAAC/peach-goma-goma-peach.gif"
+        alt="Lovely GIF">
+
+    <h1 id="myHeading">Love of Your Life</h1>
+
+    <button onclick="showTextInput()">Yes</button>
+
+    <div id="textInputContainer"></div>
+
+    <style>
+        input {
+            font-size: 18px;
+            padding: 8px;
+            width: 330px;
+        }
+    </style>
+
+    <script>
+        function showTextInput() {
+            var inputElement = document.createElement('input');
+            inputElement.type = 'text';
+            inputElement.placeholder = 'Enter where you want to travel with me...';
+
+            var container = document.getElementById('textInputContainer');
+            container.innerHTML = '';
+            container.appendChild(inputElement);
+        }
+    </script>
+
+    <button id="noButton" onclick="moveAway()">No</button>
+
+    <footer>
+        Made with ❤️ by Bleron🫶🏻🤍
+    </footer>
+
+    <script>
+        function getRandomDirection() {
+            const directions = ['move-away-up', 'move-away-down', 'move-away-right', 'move-away-left'];
+            return directions[Math.floor(Math.random() * directions.length)];
+        }
+
+        function moveAway() {
+            var noButton = document.getElementById('noButton');
+            var directionClass = getRandomDirection();
+
+            noButton.classList.remove('move-away-up', 'move-away-down', 'move-away-right', 'move-away-left');
+            noButton.classList.add(directionClass);
+        }
+    </script>
+
+</body>
+
+</html>
